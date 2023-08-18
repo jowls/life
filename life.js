@@ -199,6 +199,8 @@ const dotMatrixPatterns = {
     [0, 0],
   ],
 };
+const string = "joseph allan";
+const dotMatrix = convertStringtoDotMatrix(string);
 
 function createEmptyGrid() {
   const rows = [];
@@ -302,13 +304,31 @@ function initializeGridDotMatrix(dotMatrix) {
 }
 
 function animate() {
-  updateGrid();
-  drawGrid();
+  if (isRunning) {
+    updateGrid();
+    drawGrid();
+  }
 }
 
-const string = "joseph allan";
-const dotMatrix = convertStringtoDotMatrix(string);
+// Button event handlers
+const startPauseButton = document.getElementById("startPauseButton");
+const resetButton = document.getElementById("resetButton");
+let isRunning = false;
+
+startPauseButton.addEventListener("click", () => {
+  isRunning = !isRunning;
+  if (isRunning) {
+    startPauseButton.textContent = "Pause";
+  } else {
+    startPauseButton.textContent = "Resume";
+  }
+});
+
+resetButton.addEventListener("click", () => {
+  grid = createEmptyGrid();
+  initializeGridDotMatrix(dotMatrix);
+  drawGrid();
+});
+
 initializeGridDotMatrix(dotMatrix);
-//updateGrid();
-drawGrid();
-// setInterval(animate, 500);
+setInterval(animate, 666);
