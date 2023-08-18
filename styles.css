@@ -8,3 +8,15 @@ html {
 canvas {
   display: block;
 }
+
+#buttonContainer {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+button {
+  margin: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
