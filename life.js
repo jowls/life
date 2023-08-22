@@ -225,6 +225,7 @@ function drawGrid() {
   }
 }
 
+// https://en.wikipedia.org/wiki/Conway's_Game_of_Life#Rules
 function updateGrid() {
   const newGrid = createEmptyGrid();
   for (let i = 0; i < numRows; i++) {
